@@ -1,0 +1,96 @@
+#testimonials {
+  padding: 40px 20px;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.avatar-usuario {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.avaliacao {
+  display: grid;
+  margin-bottom: 15px;
+}
+
+.avaliacoes-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.stars span {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.stars span.selected,
+.stars span.hovered {
+  color: gold;
+}
+
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin: 10px 0;
+  padding: 8px;
+  resize: none;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+#avaliacoes-lista .avaliacao {
+  background: white;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  max-height: 80%;
+  overflow-y: auto;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 10px;
+  position: relative;
+}
+
+#fecharModal {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.hidden {
+  display: none !important;
+}

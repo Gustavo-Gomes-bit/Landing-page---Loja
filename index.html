@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="src/styles/style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="src/javascript/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <title>Loja</title>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <a href="#home" id="nav_logo">
+          <img
+            src="/src/images/FG-LOGO-PNG-1 (1).png"
+            alt="logo da fg motions"
+            id="logo"
+          />
+          <p>FG Motions</p>
+        </a>
+
+        <ul id="nav_list">
+          <li class="nav-item active">
+            <a href="#home">Início</a>
+          </li>
+          <li class="nav-item">
+            <a href="#menu">Coleção</a>
+          </li>
+          <li class="nav-item">
+            <a href="#testimonials">Avaliações</a>
+          </li>
+        </ul>
+
+        <div id="btn_header">
+          <button class="btn-default" id="btn-buy">Compre agora</button>
+
+          <button id="mobile_btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section id="home">
+        <div id="cta">
+          <div id="cta-mensage">
+            <h1 class="title">
+              Sua moda favorita, para todos os <span>estilos</span>
+            </h1>
+
+            <p class="description">
+              Descubra peças exclusivas que refletem quem você é.
+            </p>
+          </div>
+
+          <div class="shape">
+            <div class="swiper destaque-swiper">
+              <div class="swiper-wrapper" id="destaque-container"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div id="cta_buttons">
+            <a href="#menu" class="btn-default"> Ver coleção </a>
+
+            
+          </div>
+
+          <div class="social-media-buttons">
+            <a href="tel:+5511975410555">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/gustavo.gomes.357/">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/gustavogomes.gomes.357/">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu">
+        <h2 class="section-title">Coleção</h2>
+        <h3 class="section-subtitle">Nossas peças especiais</h3>
+
+        <div id="categorias">
+          <div class="categoria-card" data-categoria="Blusas">
+            <img src="src/images/blusas.jpg" alt="Blusas" />
+            <p>Blusas</p>
+          </div>
+          <div class="categoria-card" data-categoria="Calcas">
+            <img src="src/images/calcas.jpg" alt="Calças" />
+            <p>Calças</p>
+          </div>
+          <div class="categoria-card" data-categoria="Camisa">
+            <img src="src/images/camisas.jpg" alt="Camisas" />
+            <p>Camisas</p>
+          </div>
+          <div class="categoria-card" data-categoria="Bones">
+            <img src="src/images/bones.jpg" alt="Bonés" />
+            <p>Bonés</p>
+          </div>
+          <div class="categoria-card" data-categoria="Calcados">
+            <img src="src/images/calcados.jpg" alt="Calçados" />
+            <p>Calçados</p>
+          </div>
+        </div>
+
+        <button
+          id="fechar-produtos"
+          class="btn-default"
+          style="display: none; margin-top: 20px"
+        >
+          Fechar
+        </button>
+        <div id="produtos">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slides são exibidos aqui -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials">
+        <div class="avaliacoes-container">
+          <h2>Avaliações</h2>
+          <div id="user-area">
+            <div id="avaliacao-form" class="hidden">
+              <div class="stars">
+                <span data-star="1">★</span>
+                <span data-star="2">★</span>
+                <span data-star="3">★</span>
+                <span data-star="4">★</span>
+                <span data-star="5">★</span>
+              </div>
+              <textarea
+                id="comentario"
+                placeholder="Deixe seu comentário..."
+              ></textarea>
+              <button id="enviarAvaliacao">Enviar Avaliação</button>
+            </div>
+          </div>
+          <div id="avaliacoes-lista"></div>
+          <button id="loginBtn">Avaliar</button>
+          <button id="verTodas" class="hidden">Mais avaliações</button>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="hidden">
+          <div class="modal-content">
+            <span id="fecharModal">&times;</span>
+            <div id="todasAvaliacoes"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <img src="src/images/wave.svg" alt="Ilustração de Ondas" />
+
+      <div id="footer_items">
+        <span id="copyright"> &copy; 2025 FG Motions </span>
+
+        <div class="social-media-buttons">
+          <a href="">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <a href="">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
