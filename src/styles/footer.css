@@ -1,5 +1,5 @@
 footer {
-  background-color: var(--color-primary-2);
+  background-color: var(--color-primary-3);
 }
 
 #footer_items {
@@ -9,9 +9,14 @@ footer {
   align-items: center;
 }
 
+.imgOnda svg {
+  transform: rotate(180deg);
+  color: var(--color-primary-1);
+}
+
 #copyright {
   color: var(--color-neutral-1);;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 600px) {
@@ -19,4 +24,22 @@ footer {
       flex-direction: column;
       gap: 20px;
   }
+}
+
+.marcasRevendidas {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.marcasRevendidas img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+#logoMahogany img {
+  width: 7rem;
+  height: 7rem;
 }

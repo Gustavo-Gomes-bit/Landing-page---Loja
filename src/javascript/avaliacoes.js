@@ -77,7 +77,7 @@ function gerarHTML(av) {
     <div class="avaliacao">
       <img src="${foto}" alt="${av.nome}" class="avatar-usuario">
       <strong>${av.nome}</strong>
-      <div>${stars}</div>
+      <div class="starsAv">${stars}</div>
       <p>${av.comentario}</p>
     </div>
   `;

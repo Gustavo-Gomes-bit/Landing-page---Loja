@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jana Presentes e Perfumaria - Produtos</title>
+  <link rel="stylesheet" href="src/styles/style.css">
+  <link rel="stylesheet" href="src/styles/produto.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script type="module" src="src/javascript/produto.js"></script>
+</head>
+<body>
+  <header>
+    <nav id="navbar">
+      <a href="#home" id="nav_logo">
+        <img
+          src="/src/images/Logo_Batty_Boop.png"
+          alt="logo da jana"
+          id="logo"
+        />
+        <p>Jana Presentes e Perfumaria</p>
+      </a>
+
+      <div id="btn_header">
+        <button id="mobile_btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="produto-detalhes" class="produto-detalhes-container">
+    <!-- Conteúdo do produto será carregado aqui -->
+  </main>
+
+  <!-- Carrinho Lateral -->
+  <div id="perfil" class="perfil">
+    <div class="perfil-header">
+      <h1>Carrinho</h2>
+      <button id="fechar-carrinho">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+    <div id="carrinho-itens" class="carrinho-itens">
+      <!-- Itens do carrinho aparecem aqui -->
+    </div>
+    <div class="btnBuy">
+      <button id="comprar-btn" class="btn-default">Comprar</button>
+    </div>
+  </div>
+
+  <footer>
+    <img src="src/images/wave.svg" alt="Ilustração de Ondas" />
+
+    <div id="footer_items">
+      <span id="copyright"> &copy; Jana Presentes e Perfumaria </span>
+
+      <div class="marcasRevendidas">
+        <div id="logoNatura">
+          <a href="https://www.natura.com.br/consultoria/janainab1701">
+            <img src="src/images/logoNatura.png" alt="Logo Natura, a Jana é revendedora desta marca"/>
+          </a>
+        </div>
+
+        <div id="logoMahogany">
+          <a href="">
+            <img src="src/images/logoMahogany.png" alt="Logo Mahogany, a Jana é revendedora desta marca"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

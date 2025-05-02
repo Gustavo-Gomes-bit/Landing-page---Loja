@@ -1,6 +1,6 @@
 #testimonials {
   padding: 40px 20px;
-  background: #f8f8f8;
+  background: var(--color-primary-1);
   text-align: center;
 }
 
@@ -22,6 +22,11 @@
   margin: auto;
 }
 
+.avaliacoes-container h2 {
+  font-size: 2rem;
+  color: var(--color-primary-6);
+}
+
 .stars span {
   font-size: 24px;
   cursor: pointer;
@@ -31,6 +36,11 @@
 .stars span.selected,
 .stars span.hovered {
   color: gold;
+}
+
+.starsAv {
+  font-size: 1.3rem;
+  color: rgb(227, 195, 11);
 }
 
 
@@ -46,10 +56,16 @@ button {
   padding: 10px 20px;
   margin-top: 10px;
   cursor: pointer;
-  background: #000;
+  background-color: var(--color-primary-6);
   color: #fff;
   border: none;
   border-radius: 6px;
+}
+
+button:hover {
+  transition: transform 0.5s ease;
+  background-color: var(--color-primary-5);
+  transform: scale(1.1);
 }
 
 #avaliacoes-lista .avaliacao {
@@ -84,11 +100,16 @@ button {
 }
 
 #fecharModal {
+  color: var(--color-primary-6);
   position: absolute;
   right: 15px;
   top: 10px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 2.5rem;
+}
+
+#fecharModal:hover {
+  color: var(--color-primary-5);
 }
 
 .hidden {

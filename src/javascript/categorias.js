@@ -1,5 +1,9 @@
-import { db } from './firebase-init.js';
-import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js';
+import { db } from "./firebase-init.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+import { adicionarAoCarrinho, comprarProdutoViaWhatsApp } from './carrinho.js';
 
 let swiperAtual = null;
 
@@ -7,7 +11,6 @@ export async function carregarProdutosPorCategoria(categoriaId) {
   const container = document.getElementById("produtos");
   const botaoFechar = document.getElementById("fechar-produtos");
 
-  // Destroi o swiper anterior se existir
   if (swiperAtual) {
     swiperAtual.destroy(true, true);
     swiperAtual = null;
@@ -16,9 +19,6 @@ export async function carregarProdutosPorCategoria(categoriaId) {
   container.innerHTML = `
     <div class="swiper-container">
       <div class="swiper-wrapper"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
     </div>
   `;
 
@@ -35,63 +35,133 @@ export async function carregarProdutosPorCategoria(categoriaId) {
       const slide = document.createElement("div");
       slide.classList.add("swiper-slide");
 
-      slide.innerHTML = `
-        <div class="produto-card">
-          <img src="${dados.imagem}" alt="${dados.nome}">
-          <h3 style="margin-top: 12px;">${dados.nome}</h3>
-          <p style="color: #666; font-size: 14px;">${dados.descricao}</p>
-          <p style="font-weight: bold; margin-top: 8px;">R$ ${dados.preco}</p>
-        </div>
-      `;
-      swiperWrapper.appendChild(slide);
-    });
-  }
-
-  // Mostra o botão "Fechar"
-  botaoFechar.style.display = "block";
-
-  if (!produtosSnap.empty) {
-    produtosSnap.forEach((produtoDoc) => {
-      const dados = produtoDoc.data();
-      const slide = document.createElement("div");
-      slide.classList.add("swiper-slide");
+      //abrevia o nome dos produtos, caso necessario
+      const nomeAbreviado = dados.nome.length > 45 ? dados.nome.slice(0, 40) + "..." : dados.nome;
 
       slide.innerHTML = `
         <div class="produto-card">
-          <img src="${dados.imagem}" alt="${dados.nome}">
-          <h3 style="margin-top: 12px;">${dados.nome}</h3>
-          <p style="color: #666; font-size: 14px;">${dados.descricao}</p>
-          <p style="font-weight: bold; margin-top: 8px;">R$ ${dados.preco}</p>
+          <img src="${dados.imagem1}" alt="${dados.nome}">
+          <div class="infoProduto">
+            <h3 style="margin-top: 12px;">${nomeAbreviado}</h3>
+            <p style="margin-top: 8px;">${dados.preco.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}</p>
+            <div>
+              <button class="btn-comprar" data-id="${produtoDoc.id}" data-nome="${dados.nome}" data-preco="${dados.preco}">
+                <i class="fa-solid fa-money-check-dollar"></i> Comprar
+              </button>
+              <button class="btn-add-carrinho" data-id="${produtoDoc.id}" data-nome="${dados.nome}" data-preco="${dados.preco}">
+                <i class="fa-solid fa-cart-shopping"></i> Adicionar
+              </button>
+            </div>
+            <div class="quantidade-container" style="display: none;">
+              <div class="quantidade-controles">
+                <button class="cancel"><i class="fa-solid fa-ban"></i></button>
+                <button class="diminuir-qtd">-</button>
+                <span class="quantidade-valor">1</span>
+                <button class="aumentar-qtd">+</button>
+              </div>
+              <button class="confirmar-qtd">Confirmar</button>
+            </div>
+          </div>
         </div>
       `;
-      swiperWrapper.appendChild(slide);
-    });
 
-    // Aguarda DOM atualizar para garantir que slides estão no lugar
-    setTimeout(() => {
-      swiperAtual = new Swiper(".swiper-container", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-        },
+
+      // Referência aos elementos
+      const btnBuy = slide.querySelector(".btn-comprar");
+      const btnAdd = slide.querySelector(".btn-add-carrinho");
+      const qtdContainer = slide.querySelector(".quantidade-container");
+      const btnCancel = slide.querySelector(".cancel");
+      const btnMais = slide.querySelector(".aumentar-qtd");
+      const qtdValor = slide.querySelector(".quantidade-valor");
+      const btnMenos = slide.querySelector(".diminuir-qtd");
+      const btnConfirmar = slide.querySelector(".confirmar-qtd");
+
+      let quantidade = 1;
+
+      btnBuy.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const nome = dados.nome;
+        const preco = dados.preco;
+        comprarProdutoViaWhatsApp(nome, preco);
       });
-    }, 100);
+
+      btnAdd.addEventListener("click", (e) => {
+        btnBuy.style.display = "none";
+        qtdContainer.style.display = "flex";
+        quantidade = 1;
+        qtdValor.textContent = quantidade;
+      });
+
+      btnCancel.addEventListener("click", (e) => {
+        e.stopPropagation();
+        qtdContainer.style.display = "none";
+        btnBuy.style.display = "";
+      });
+
+      btnMais.addEventListener("click", (e) => {
+        e.stopPropagation();
+        quantidade++;
+        qtdValor.textContent = quantidade;
+      });
+
+      btnMenos.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (quantidade > 1) {
+          quantidade--;
+          qtdValor.textContent = quantidade;
+        }
+      });
+
+      btnConfirmar.addEventListener("click", (e) => {
+        e.stopPropagation();
+        adicionarAoCarrinho(produtoDoc.id, dados.nome, dados.preco, quantidade);
+        qtdContainer.style.display = "none";
+        btnBuy.style.display = "";
+      });
+
+      
+      slide.addEventListener("click", (e) => {
+        if (e.target.closest(".btn-add-carrinho")) return;
+        window.location.href = `produto.html?id=${produtoDoc.id}&categoria=${categoriaId}`;
+      });
+
+      swiperWrapper.appendChild(slide);
+    });
   }
 
   botaoFechar.style.display = "block";
+
+  setTimeout(() => {
+    swiperAtual = new Swiper(".swiper-container", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      speed: 1000,
+      grabCursor: true,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        1500: { slidesPerView: 3 },
+      },
+    });    
+  }, 100);
+
+  document.getElementById("fechar-produtos").addEventListener("click", () => {
+    container.innerHTML = "";
+    botaoFechar.style.display = "none";
+    if (swiperAtual) {
+      swiperAtual.destroy(true, true);
+      swiperAtual = null;
+    }
+  });
 }

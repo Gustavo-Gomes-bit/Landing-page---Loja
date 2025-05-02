@@ -3,32 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="src/styles/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="module" src="src/javascript/script.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <title>Loja</title>
+    <title>Jana Presentes e Perfumaria</title>
   </head>
   <body>
     <header>
       <nav id="navbar">
         <a href="#home" id="nav_logo">
           <img
-            src="/src/images/FG-LOGO-PNG-1 (1).png"
-            alt="logo da fg motions"
+            src="/src/images/Logo_Batty_Boop.png"
+            alt="logo da jana"
             id="logo"
           />
-          <p>FG Motions</p>
+          <p>Jana Presentes e Perfumaria</p>
         </a>
 
         <ul id="nav_list">
-          <li class="nav-item active">
-            <a href="#home">Início</a>
-          </li>
           <li class="nav-item">
-            <a href="#menu">Coleção</a>
+            <a href="#menu">Produtos</a>
           </li>
           <li class="nav-item">
             <a href="#testimonials">Avaliações</a>
@@ -36,10 +47,10 @@
         </ul>
 
         <div id="btn_header">
-          <button class="btn-default" id="btn-buy">Compre agora</button>
+          <button class="btn-default" id="comprar-btn">Compre agora</button>
 
           <button id="mobile_btn">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
           </button>
         </div>
       </nav>
@@ -50,11 +61,11 @@
         <div id="cta">
           <div id="cta-mensage">
             <h1 class="title">
-              Sua moda favorita, para todos os <span>estilos</span>
+              Presentes e cosméticos, é aqui na <span>Jana</span>
             </h1>
 
             <p class="description">
-              Descubra peças exclusivas que refletem quem você é.
+              Realce sua beleza com produtos que revelam sua essência.
             </p>
           </div>
 
@@ -66,51 +77,74 @@
           </div>
 
           <div id="cta_buttons">
-            <a href="#menu" class="btn-default"> Ver coleção </a>
-
-            
+            <a href="#menu" class="btn-default"> Ver produtos </a>
           </div>
 
           <div class="social-media-buttons">
-            <a href="tel:+5511975410555">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-
-            <a href="https://www.instagram.com/gustavo.gomes.357/">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a href="https://www.facebook.com/gustavogomes.gomes.357/">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-          </div>
+            <button class="btnHome" id="btnWhats">
+              <img src="./src/images/whatsapp-brands.svg" alt="Entrar em contato via WhatsApp">
+            </button> 
+          
+            <button class="btnHome" id="btnEspacoNatura">
+              Espaço digital Natura
+            </button>        
+          </div>          
         </div>
       </section>
 
       <section id="menu">
-        <h2 class="section-title">Coleção</h2>
-        <h3 class="section-subtitle">Nossas peças especiais</h3>
+        <h2 class="section-title">Produtos</h2>
+        <h3 class="section-subtitle">Nossas produtos especiais</h3>
 
         <div id="categorias">
-          <div class="categoria-card" data-categoria="Blusas">
-            <img src="src/images/blusas.jpg" alt="Blusas" />
-            <p>Blusas</p>
+          <div class="categoria-card" data-categoria="PerfumariaNaturaFeminina">
+            <img
+              src="src/images/perfumariaNaturaFeminina.jpg"
+              alt="Categoria de perfumes natura feminina"
+            />
+            <p>Perfumaria Natura Feminina</p>
           </div>
-          <div class="categoria-card" data-categoria="Calcas">
-            <img src="src/images/calcas.jpg" alt="Calças" />
-            <p>Calças</p>
+          <div class="categoria-card" data-categoria="Mahogany">
+            <img
+              src="src/images/mahogany.png"
+              alt="Categoria de itens da Mahogany"
+            />
+            <p>Mahogany</p>
           </div>
-          <div class="categoria-card" data-categoria="Camisa">
-            <img src="src/images/camisas.jpg" alt="Camisas" />
-            <p>Camisas</p>
+          <div class="categoria-card" data-categoria="PerfumariaMasculina">
+            <img
+              src="src/images/perfumariaMasculina.jpg"
+              alt="Categoria de perfumes masculinos"
+            />
+            <p>Perfumaria Masculina</p>
           </div>
-          <div class="categoria-card" data-categoria="Bones">
-            <img src="src/images/bones.jpg" alt="Bonés" />
-            <p>Bonés</p>
+          <div class="categoria-card" data-categoria="CestasKits">
+            <img
+              src="src/images/cestasKits.png"
+              alt="Categoria de cestas e kits"
+            />
+            <p>Cestas e Kits</p>
           </div>
-          <div class="categoria-card" data-categoria="Calcados">
-            <img src="src/images/calcados.jpg" alt="Calçados" />
-            <p>Calçados</p>
+          <div class="categoria-card" data-categoria="CorpoBanho">
+            <img
+              src="src/images/corpoBanho.jpg"
+              alt="Categoria dos itens de corpo e banho"
+            />
+            <p>Corpo e Banho</p>
+          </div>
+          <div class="categoria-card" data-categoria="Infantil">
+            <img
+              src="src/images/infantil.jpg"
+              alt="Categoria dos itens Infantis"
+            />
+            <p>Infantil</p>
+          </div>
+          <div class="categoria-card" data-categoria="ProdutosMasculinos">
+            <img
+              src="src/images/produtosMasculinos.jpg"
+              alt="Categoria dos itens de Produtos masculinos"
+            />
+            <p>Produtos masculinos</p>
           </div>
         </div>
 
@@ -164,24 +198,43 @@
       </section>
     </main>
 
+    <!-- Carrinho Lateral -->
+    <div id="perfil" class="perfil">
+      <div class="perfil-header">
+        <h1>Carrinho</h2>
+        <button id="fechar-carrinho">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+      <div id="carrinho-itens" class="carrinho-itens">
+        <!-- Itens do carrinho aparecem aqui -->
+      </div>
+      <div class="btnBuy">
+        <button id="comprar-btn" class="btn-default">Comprar</button>
+      </div>
+    </div>
+
     <footer>
-      <img src="src/images/wave.svg" alt="Ilustração de Ondas" />
-
+      <div class="imgOnda">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" fill="currentColor">
+          <path d="M0,192L30,197.3C60,203,120,213,180,192C240,171,300,117,360,90.7C420,64,480,64,540,85.3C600,107,660,149,720,160C780,171,840,149,900,149.3C960,149,1020,171,1080,186.7C1140,203,1200,213,1260,197.3C1320,181,1380,139,1410,117.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+        </svg>
+      </div>
       <div id="footer_items">
-        <span id="copyright"> &copy; 2025 FG Motions </span>
+        <span id="copyright"> &copy; Jana Presentes e Perfumaria </span>
 
-        <div class="social-media-buttons">
-          <a href="">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
+        <div class="marcasRevendidas">
+          <div id="logoNatura">
+            <a href="https://www.natura.com.br/consultoria/janainab1701">
+              <img src="src/images/logoNatura.png" alt="Logo Natura, a Jana é revendedora desta marca"/>
+            </a>
+          </div>
 
-          <a href="">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-
-          <a href="">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
+          <div id="logoMahogany">
+            <a href="">
+              <img src="src/images/logoMahogany.png" alt="Logo Mahogany, a Jana é revendedora desta marca"/>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
