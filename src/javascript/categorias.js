@@ -140,7 +140,7 @@ export async function carregarProdutosPorCategoria(categoriaId) {
   setTimeout(() => {
     swiperAtual = new Swiper(".swiper-container", {
       slidesPerView: 1,
-      spaceBetween: 20,
+      spaceBetween: 0,
       speed: 1000,
       grabCursor: true,
       pagination: {

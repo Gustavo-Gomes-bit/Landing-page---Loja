@@ -64,8 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               </button>
               <button class="voltar btn-default" onclick="history.back()">Voltar</button>
             </div>
-          </div>
-          <div class="quantidade-container" style="display: none;">
+            <div class="quantidade-container" style="display: none;">
               <div class="quantidade-controles">
                 <button class="cancel"><i class="fa-solid fa-ban"></i></button>
                 <button class="diminuir-qtd">-</button>
@@ -74,6 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               </div>
               <button class="confirmar-qtd">Confirmar</button>
             </div>
+          </div>
         </section>
       `;
 
