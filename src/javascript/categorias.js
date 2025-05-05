@@ -19,6 +19,9 @@ export async function carregarProdutosPorCategoria(categoriaId) {
   container.innerHTML = `
     <div class="swiper-container">
       <div class="swiper-wrapper"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
     </div>
   `;
 
@@ -140,7 +143,6 @@ export async function carregarProdutosPorCategoria(categoriaId) {
       spaceBetween: 20,
       speed: 1000,
       grabCursor: true,
-      loop: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

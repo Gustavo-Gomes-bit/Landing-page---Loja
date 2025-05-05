@@ -74,11 +74,40 @@
   padding: 40px 20px;
 }
 
-
 .swiper-container {
   width: 100%;
   overflow: hidden;
   padding: 20px 0;
+  position: relative;          /* ← torna possível posicionar filhos absolute */ 
+  overflow: visible;           /* ← permite que as setas “saíam” ligeiramente do container */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;          /* ← retira do fluxo, posiciona em relação ao .swiper-container */
+  top: 50%;                    /* ← centro vertical */ 
+  transform: translateY(-50%); /* ← ajuste fino vertical */ 
+  width: 40px;
+  height: 40px;
+  display: flex;               /* ← para alinhar o ícone interno */ 
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* seta “anterior” à esquerda, “próxima” à direita */
+.swiper-button-prev { left: 5rem;  /* sai 20px para fora do container */ }
+.swiper-button-next { right: 5rem; }
+
+
+/* 3. Paginação sempre embaixo, ocupando 100% */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .swiper-slide {
@@ -197,7 +226,17 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1170px) {
+  #produtos {
+    max-width: 50rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #produtos {
+    max-width: 40rem;
+  }
+
   #menu .section-subtitle {
       text-align: center;
   }
@@ -228,6 +267,12 @@
   .categoria-card {
     width: 107px;
     height: 170px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #produtos {
+    max-width: 22rem;
   }
 }
 

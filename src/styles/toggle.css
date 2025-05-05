@@ -129,6 +129,15 @@
   background-color: var(--color-primary-5);
 }
 
+#btn-comprar{
+  background-color: var(--color-primary-6);
+  color: var(--color-neutral-2);
+}
+
+#btn-comprar:hover {
+  background-color: var(--color-primary-5);
+}
+
 /* Estiliza cada item dentro do carrinho */
 .item-carrinho {
   background-color: #f9f9f9;

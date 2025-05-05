@@ -64,6 +64,7 @@ function listarCarrinho() {
 // Torna a função acessível globalmente
 window.adicionarAoCarrinho = adicionarAoCarrinho;
 
+//evento de comprar do botão "COMPRAR AGORA"
 document.addEventListener('DOMContentLoaded', () => {
   const comprarBtn = document.getElementById('comprar-btn');
   if (comprarBtn) {
@@ -81,7 +82,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       mensagem += `VALOR TOTAL DA COMPRA: R$ ${totalGeral.toFixed(2)}%0A%0A`;
-      mensagem += `Você essa lista a pronta entrega?`;
+      mensagem += `Você tem essa lista a pronta entrega?`;
+
+      const numeroWhatsApp = '5511963896909';
+      const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+
+      window.open(url, '_blank');
+    });
+  }
+});
+
+//evento do botão de comprar do toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const btnComprar = document.getElementById('btn-comprar');
+  if (btnComprar) {
+    btnComprar.addEventListener('click', () => {
+      alert("clicou")
+      const carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || {};
+      let mensagem = 'Esta é a minha lista de compras que eu fiz no site:%0A%0A';
+      let totalGeral = 0;
+
+      Object.values(carrinho).forEach(item => {
+        const totalItem = item.preco * item.quantidade;
+        totalGeral += totalItem;
+        mensagem += `- Produto: ${item.nome}%0A`;
+        mensagem += `  Quantidade: ${item.quantidade}%0A`;
+        mensagem += `  Valor: R$ ${totalItem.toFixed(2)}%0A%0A`;
+      });
+
+      mensagem += `VALOR TOTAL DA COMPRA: R$ ${totalGeral.toFixed(2)}%0A%0A`;
+      mensagem += `Você tem essa lista a pronta entrega?`;
 
       const numeroWhatsApp = '5511963896909';
       const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
