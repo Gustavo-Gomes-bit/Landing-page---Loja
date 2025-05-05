@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnComprar = document.getElementById('btn-comprar');
   if (btnComprar) {
     btnComprar.addEventListener('click', () => {
-      alert("clicou")
       const carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || {};
       let mensagem = 'Esta é a minha lista de compras que eu fiz no site:%0A%0A';
       let totalGeral = 0;
